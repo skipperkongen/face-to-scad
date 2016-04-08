@@ -17,7 +17,7 @@ Get annotations for picture (at most one from each category):
 
 ## Calling Google Vision API manually
 
-Base64-encoded image:
+Base64-encode an image:
 
 ```
 INPUT_IMAGE=`base64 mypicture.png`
