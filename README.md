@@ -20,7 +20,7 @@ Get annotations for picture (at most one from each category):
 Base64-encode an image:
 
 ```
-INPUT_IMAGE=`base64 mypicture.png`
+INPUT_IMAGE=`base64 mypicture.jpg`
 ```
 
 Create label-detection request (file called `request.json` in this example):
