@@ -12,6 +12,8 @@ This is how to call the Google Vision API. The API can do:
 Get annotations for picture (at most one from each category):
 
 ```
+# Reads the environment variable GOOGLE_VISION_API_KEY, which you must set to
+# your API key for the Google Vision API.
 ./visionapi.sh mypicture.png
 ```
 
