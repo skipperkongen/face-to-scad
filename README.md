@@ -9,10 +9,10 @@ This is how to call the Google Vision API. The API can do:
 
 ## Call Google Vision API with script
 
-Get five labels for picture:
+Get annotations for picture (at most one from each category):
 
 ```
-./visionapi.sh LABEL_DETECTION mypicture.png
+./visionapi.sh mypicture.png
 ```
 
 ## Calling Google Vision API manually
@@ -20,11 +20,10 @@ Get five labels for picture:
 Base64-encoded image:
 
 ```
-VISION_API_INPUT=`base64 mypicture.png`
-VISION_API_ANNOTATION=LABEL_DETECTION
+INPUT_IMAGE=`base64 mypicture.png`
 ```
 
-Create request JSON file (called `request.json` in this example):
+Create label-detection request (file called `request.json` in this example):
 
 ```
 cat > request.json << EOF
@@ -32,12 +31,12 @@ cat > request.json << EOF
   "requests":[
     {
       "image":{
-        "content":"$GOOGLE_VISION_API_INPUT"
+        "content":"$INPUT_IMAGE"
       },
       "features":[
         {
-          "type":"$GOOGLE_VISION_API_ANNOTATION",
-          "maxResults": 5
+          "type":"LABEL_DETECTION",
+          "maxResults": 3
         }
       ]
     }
@@ -46,7 +45,7 @@ cat > request.json << EOF
 EOF
 ```
 
-Call service:
+Call service (here you need your API key):
 
 ```
 curl -v -k -s -H "Content-Type: application/json" \
