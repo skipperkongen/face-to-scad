@@ -12,7 +12,7 @@ This is how to call the Google Vision API. The API can do:
 Get five labels for picture:
 
 ```
-./visionapi.sh mypicture.png
+./visionapi.sh LABEL_DETECTION mypicture.png
 ```
 
 ## Calling Google Vision API manually

@@ -2,7 +2,7 @@
 FILE=$1
 if [ ! -f $FILE ];
 then
-   echo "usage: visionapi.sh IMAGE"
+   echo "usage: visionapi.sh ANNOTATION MAX_RESULTS IMAGE"
 fi
 
 IMAGE=`base64 $FILE`
@@ -17,7 +17,31 @@ cat > .request.json << EOF
       "features":[
         {
           "type":"LABEL_DETECTION",
-          "maxResults": 5
+          "maxResults": 1
+        },
+        {
+          "type":"TEXT_DETECTION",
+          "maxResults": 1
+        },
+        {
+          "type":"FACE_DETECTION",
+          "maxResults": 1
+        },
+        {
+          "type":"LANDMARK_DETECTION",
+          "maxResults": 1
+        },
+        {
+          "type":"LOGO_DETECTION",
+          "maxResults": 1
+        },
+        {
+          "type":"SAFE_SEARCH_DETECTION",
+          "maxResults": 1
+        },
+        {
+          "type":"IMAGE_PROPERTIES",
+          "maxResults": 1
         }
       ]
     }
